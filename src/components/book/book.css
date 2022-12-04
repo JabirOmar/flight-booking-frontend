@@ -1,0 +1,265 @@
+
+.book_section {
+    width: 100%;
+    min-height: calc(100vh - 62px);
+}
+
+#booking_title {
+    width: 100%;
+    height: 10%;
+    /* display: flex;
+    justify-content: center;
+    text-align: center; */
+    text-align: center;
+    font-family: 'Montserrat';
+    color: black;
+    font-weight: 500;
+}
+
+#booking_title span {
+    color: orange;
+}
+
+body.dark #booking_title {
+    color: white;
+}
+
+body.dark #booking_title span {
+    color: orange;
+}
+
+/* .booking_form {
+    width: 500px;
+    max-width: 650px;
+    height: fit-content;
+
+    margin: auto;
+    margin-top: 5%;
+    padding: 30px 3%;
+    border-radius: 10px;
+    box-shadow: rgba(100, 100, 111, 0.2) 0px 7px 29px 0px;
+    backdrop-filter: blur(10px);
+} */
+
+/* .booking_form h3 {
+    padding: 0px 0 30px 0;
+    font-size: 25px;
+    text-align: center;
+    color: darkorange;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+
+.small_container {
+    position: relative;
+    height: 60px;
+}
+
+.from_container {
+    margin-bottom: 20px;
+}
+
+.flight_label {
+    position: absolute;
+    top: 40%;
+    font-size: 18px;
+    transition: all 0.5s;
+    color: gray;
+}
+
+#to_label.active,
+#from_label.active {
+    top: 0;
+    font-size: 16px;
+    color: darkcyan;
+}
+
+.flight_input {
+    position: absolute;
+    width: 100%;
+    bottom: 20%;
+    padding: 0 20px 0 0;
+    background: transparent;
+    color: black;
+    outline: none;
+    border-top-style: none;
+    border-left-style: none;
+    border-right-style: none;
+    border-bottom: 1px solid black;
+    font-size: 18px;
+    text-transform: capitalize;
+    z-index: 3;
+}
+
+body.dark .flight_input {
+    color: #ffffff;
+    border-color: darkcyan;
+}
+
+.error {
+    position: absolute;
+    top: calc(100% - 13px);
+    font-size: 15px;
+    color: red;
+    margin-left: 5px;
+    transition: all 0.5s;
+    display: none;
+}
+
+#from_error {
+    position: absolute;
+    right: 1%;
+    bottom: 30%;
+    color: red;
+    size: 18px;
+    display: none;
+}
+
+#to_error {
+    position: absolute;
+    right: 1%;
+    bottom: 30%;
+    color: red;
+    size: 18px;
+    display: none;
+}
+
+#from_checked {
+    position: absolute;
+    right: 1%;
+    bottom: 30%;
+    color: green;
+    size: 18px;
+    display: none;
+}
+
+#to_checked {
+    position: absolute;
+    right: 1%;
+    bottom: 30%;
+    color: green;
+    size: 18px;
+    display: none;
+}
+
+.form_button_container {
+    width: 100%;
+    margin-top: 25px;
+    display: flex;
+    justify-content: right;
+}
+
+.form_button_container button {
+    width: 100px;
+    height: 30px;
+    cursor: pointer;
+    background-color: orange;
+    border: none;
+    border-radius: 5px;
+    font-weight: 500;
+} */
+
+
+.booking_form {
+    width: 80%;
+    max-width: 500px;
+    height: 430px;
+    border: 1px solid;
+    border-radius: 5px;
+    margin: 50px auto 0 auto;
+    padding: 30px 3%;
+    overflow: hidden;
+}
+
+#form_big_title {
+    /* color: darkorange; */
+    text-align: center;
+    font-size: 24px;
+    font-weight: 400;
+}
+
+#form_hor {
+    width: 80%;
+    margin: 20px auto;
+    border: 0.5px solid lightgray;
+}
+
+#page_wrapper {
+    position: relative;
+    /* display: flex; */
+    /* overflow-y: hidden; */
+}
+
+.page {
+    position: absolute;
+    top: 20px;
+    min-width: 100%;
+    transition: all 0.3s;
+}
+
+#pageOne {
+    left: 0;
+}
+
+#pageTwo {
+    left: 500px;
+}
+
+#pageThree {
+    left: 500px;
+}
+
+.page_title {
+    font-size: 20px;
+    font-weight: 400;
+    color: black;
+    margin-bottom: 25px;
+}
+
+.form_field {
+    min-height: 50px;
+    margin-bottom: 20px;
+}
+
+.form_field label {
+    display: block;
+    color: black;
+}
+
+.form_field input {
+    width: 100%;
+    padding: 8px 3%;
+    font-size: 18px;
+    text-transform: capitalize;
+    outline: none;
+    border: 0.5px solid black;
+    border-radius: 3px;
+    background-color: transparent;
+}
+
+.button_field {
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.button_field button {
+    float: right;
+    padding: 10px 20px;
+    border-radius: 5px;
+    border: none;
+    background-color: orange;
+    cursor: pointer;
+    font-weight: 500;
+    font-size: 18px;
+}
+
+#pageTwo .button_field,
+#pageThree .button_field {
+    justify-content: space-between;
+}
+
+
+#pageOne {
+    /* display: none; */
+}
