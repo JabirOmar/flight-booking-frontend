@@ -1,7 +1,7 @@
 
 .book_section {
     width: 100%;
-    min-height: calc(100vh - 62px);
+    min-height: calc(600vh - 52px);
 }
 
 #booking_title {

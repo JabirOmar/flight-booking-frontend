@@ -6,7 +6,7 @@ import Explore from './components/explore/Explore'
 import Book from './components/book/Book'
 import About from './components/about/About'
 import WhyUs from './components/whyUs/WhyUs';
-
+import Footer from './components/Footer';
 function App() {
 
   return (
@@ -19,6 +19,7 @@ function App() {
        <WhyUs />
        <Book />
        <About />
+       <Footer />
      </section>
     </>
   );
