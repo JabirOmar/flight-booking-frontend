@@ -13,11 +13,11 @@ import Login from './components/login/Login';
 // const cors = require('cors')
 // app.use(cors())
 function App() {
-  // useEffect(() => {
-  //   fetch('https://dogs-app200.herokuapp.com/dogs')
-  //   .then(res => res.json())
-  //   .then(console.log)
-  // }, [])
+  useEffect(() => {
+    fetch('http://passengers200.herokuapp.com/passengers')
+    .then(res => res.json())
+    .then(console.log)
+  }, [])
   return (
     <>
        <Login />

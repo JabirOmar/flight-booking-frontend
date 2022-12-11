@@ -26,31 +26,17 @@ function Book() {
 
   const depDate = document.getElementById('depDate')
 
-  const [from, setFrom] = useState('');
+  const [flying_from, setFrom] = useState('');
   const [to, setTo] = useState('');
   const [first_name, setFirstName] = useState('');
   const [middle_name, setMiddleName] = useState('');
   const [last_name, setLastName] = useState('');
   const [nation, setNationality] = useState('');
-  const [gen, setGender] = useState('');
+  const [what_gender, setGender] = useState('');
   const [titl, setTitle] = useState('');
   const [Age, setAge] = useState('');
   const [dep_date, setDeparture] = useState('');
   const [return_date, setReturn] = useState('');
-
-  const user = {
-      from,
-      to,
-      firstName: first_name,
-      middleName: middle_name,
-      lastName: last_name,
-      nationality: nation,
-      gender: gen,
-      title: titl,
-      age: Age,
-      depDate: dep_date,
-      retrnDate: return_date
-    }
 
   const nextOne = () => {
     if (depInput.value.length <= 2 || desInput.value.length <= 2 ) {
@@ -104,26 +90,39 @@ function Book() {
   }
 
   const handleSubmit = (e) => {
-      e.preventDefault();
+     const user = {
+      from: flying_from, 
+      to, 
+      first_name, 
+      middle_name, 
+      last_name, 
+      nation, 
+      gen: what_gender, 
+      titl, 
+      age: Age, 
+      dep_date, 
+      return_date
+    }
 
-    if (depDate.value === 0) {
-      console.log('bad');
-      e.preventDefault();
-    }else {
-      fetch('/passengers', {
+    fetch('https://passengers200.herokuapp.com/passengers', {
       method: 'POST',
       headers: { 'Content-Type':'application/json'},
       body: JSON.stringify(user)
       })
-      window.open('https://youtube.com')
-    }
+      e.preventDefault();
+
+    // if (depDate.value === 0) {
+    //   console.log('bad');
+    //   e.preventDefault();
+    // }else {
+    //   fetch('https://passengers200.herokuapp.com/passengers', {
+    //   method: 'POST',
+    //   headers: { 'Content-Type':'application/json'},
+    //   body: JSON.stringify(user)
+    //   })
+    //   // window.open('https://youtube.com')
+    // }
   }
-
-  // let countries = [ "Albanian", "Algerian", "American", "Andorran", "Angolan",]
-
-  // const selectCountry = () => {
-  //   wrapperOne.classList.toggle('active')
-  // }
   
   
 
@@ -145,7 +144,7 @@ function Book() {
             </div>
             <div className='form_field'>
               <label>Departure</label>
-              <input id='depInput' type='text'  value={from} onChange={(e) => setFrom(e.target.value)}/>
+              <input id='depInput' type='text'  value={flying_from} onChange={(e) => setFrom(e.target.value)}/>
             </div>
             <div className='form_field'>
               <label>Destination</label>
@@ -185,7 +184,7 @@ function Book() {
 
             <div className='row_1'>
               <div className='container'>
-                <select id='nationality' defaultValue={'Nationality'}>
+                <select id='nationality' defaultValue={'Nationality'} value={nation} onChange={(e) => setNationality(e.target.value)}>
                   <option disabled value="Nationality" >Nationality</option>
                   <option>Afghan</option>
                   <option>Albanian</option>
@@ -197,7 +196,7 @@ function Book() {
                 <BsChevronDown id='dropDown'/>
               </div>
               <div className='container'>
-                <select id='gender' defaultValue={'Gender'}>
+                <select id='gender' defaultValue={'Gender'} value={what_gender} onChange={(e) => setGender(e.target.value)} >
                   <option disabled value="Gender" >Gender</option>
                   <option>Male</option>
                   <option>Female</option>
@@ -208,7 +207,7 @@ function Book() {
 
             <div className='row_2'>
             <div className='container'>
-                <select id='title' defaultValue={'Title'}>
+                <select id='title' defaultValue={'Title'} value={titl} onChange={(e) => setTitle(e.target.value)} >
                   <option disabled vale="Title" >Title</option>
                   <option>Mr</option>
                   <option>Ms</option>
@@ -219,7 +218,7 @@ function Book() {
               </div>
              <div className='form_field'>
               <label>Age</label>
-              <input id='age' type='number' />
+              <input id='age' type='number' value={Age} onChange={(e) => setAge(e.target.value)} />
             </div>
             </div>
 
@@ -235,11 +234,11 @@ function Book() {
             </div>
             <div className='form_field'>
               <label>Departure Date</label>
-              <input id='depDate' type='date'  />
+              <input id='depDate' type='date' value={depDate} onChange={(e) => setDeparture(e.target.value)} />
             </div>
             <div className='form_field'>
               <label>Return Date</label>
-              <input type='date' />
+              <input type='date' value={return_date} onChange={(e) => setReturn(e.target.value)} />
             </div>
             <div className='button_field'>
             <button type='button' id='prev2' onClick={prevThree} >Previous</button>
