@@ -1,4 +1,9 @@
 
+a {
+    text-decoration: none;
+    color: black;
+}
+
 nav {
     position: fixed;
     top: 0;
@@ -61,6 +66,19 @@ body.dark .left_nav p {
 
 body.dark .nav_links ul li {
     color: aliceblue;
+}
+
+.nav_links ul li:nth-child(4) {
+    display: none;
+}
+
+.nav_links.ticket ul li:nth-child(4) {
+    display: block;
+}
+
+.nav_links.ticket ul li:nth-child(1), .nav_links.ticket ul li:nth-child(2), .nav_links.ticket ul li:nth-child(3),  .nav_links.ticket ul li:nth-child(6){
+    /* color: red; */
+    display: none;
 }
 
 .theme_container {

@@ -26,17 +26,17 @@ function Book() {
 
   const depDate = document.getElementById('depDate')
 
-  const [flying_from, setFrom] = useState('');
-  const [to, setTo] = useState('');
+  const [departure, setDeparture] = useState('');
+  const [destination, setDestination] = useState('');
   const [first_name, setFirstName] = useState('');
   const [middle_name, setMiddleName] = useState('');
   const [last_name, setLastName] = useState('');
-  const [nation, setNationality] = useState('');
+  const [PersonNationality, setNationality] = useState('');
   const [what_gender, setGender] = useState('');
-  const [titl, setTitle] = useState('');
-  const [Age, setAge] = useState('');
-  const [dep_date, setDeparture] = useState('');
-  const [return_date, setReturn] = useState('');
+  const [personTitle, setPersonTitle] = useState('');
+  const [personAge, setPersonAge] = useState('');
+  const [departure_date, setDepartureDate] = useState('');
+  const [return_date, setReturnDate] = useState('');
 
   const nextOne = () => {
     if (depInput.value.length <= 2 || desInput.value.length <= 2 ) {
@@ -77,7 +77,6 @@ function Book() {
       pageThree.style.left = '-500px'
       pageFour.style.left = '0'
       bookingForm.style.height = '415px'
-      console.log(nationality.value + " " + gender.value + " " + title.value + " " + age.value);
     }else {
       alert('Fill the fields with Correct answer')
     }
@@ -91,37 +90,25 @@ function Book() {
 
   const handleSubmit = (e) => {
      const user = {
-      from: flying_from, 
-      to, 
+      departure,
+      destination, 
       first_name, 
       middle_name, 
       last_name, 
-      nation, 
-      gen: what_gender, 
-      titl, 
-      age: Age, 
-      dep_date, 
+      nationality: PersonNationality, 
+      gender: what_gender, 
+      title: personTitle, 
+      age: personAge, 
+      departure_date, 
       return_date
     }
 
-    fetch('https://passengers200.herokuapp.com/passengers', {
+    fetch('https://plane-passengers.herokuapp.com/passengers', {
       method: 'POST',
       headers: { 'Content-Type':'application/json'},
       body: JSON.stringify(user)
       })
       e.preventDefault();
-
-    // if (depDate.value === 0) {
-    //   console.log('bad');
-    //   e.preventDefault();
-    // }else {
-    //   fetch('https://passengers200.herokuapp.com/passengers', {
-    //   method: 'POST',
-    //   headers: { 'Content-Type':'application/json'},
-    //   body: JSON.stringify(user)
-    //   })
-    //   // window.open('https://youtube.com')
-    // }
   }
   
   
@@ -144,11 +131,11 @@ function Book() {
             </div>
             <div className='form_field'>
               <label>Departure</label>
-              <input id='depInput' type='text'  value={flying_from} onChange={(e) => setFrom(e.target.value)}/>
+              <input id='depInput' type='text'  value={departure} onChange={(e) => setDeparture(e.target.value)}/>
             </div>
             <div className='form_field'>
               <label>Destination</label>
-              <input id='desInput' type='text'  value={to} onChange={(e) => setTo(e.target.value)}/>
+              <input id='desInput' type='text'  value={destination} onChange={(e) => setDestination(e.target.value)}/>
             </div>
             <div className='button_field'>
               <button type='button' onClick={nextOne} id='next1' >Continue</button>
@@ -184,7 +171,7 @@ function Book() {
 
             <div className='row_1'>
               <div className='container'>
-                <select id='nationality' defaultValue={'Nationality'} value={nation} onChange={(e) => setNationality(e.target.value)}>
+                <select id='nationality' defaultValue={'Nationality'} value={PersonNationality} onChange={(e) => setNationality(e.target.value)}>
                   <option disabled value="Nationality" >Nationality</option>
                   <option>Afghan</option>
                   <option>Albanian</option>
@@ -192,6 +179,7 @@ function Book() {
                   <option>American</option>
                   <option>Andorran</option>
                   <option>Angolan</option>
+                  <option>Somali</option>
                 </select>
                 <BsChevronDown id='dropDown'/>
               </div>
@@ -207,7 +195,7 @@ function Book() {
 
             <div className='row_2'>
             <div className='container'>
-                <select id='title' defaultValue={'Title'} value={titl} onChange={(e) => setTitle(e.target.value)} >
+                <select id='title' defaultValue={'Title'} value={personTitle} onChange={(e) => setPersonTitle(e.target.value)} >
                   <option disabled vale="Title" >Title</option>
                   <option>Mr</option>
                   <option>Ms</option>
@@ -218,7 +206,7 @@ function Book() {
               </div>
              <div className='form_field'>
               <label>Age</label>
-              <input id='age' type='number' value={Age} onChange={(e) => setAge(e.target.value)} />
+              <input id='age' type='number' value={personAge} onChange={(e) => setPersonAge(e.target.value)} />
             </div>
             </div>
 
@@ -234,11 +222,11 @@ function Book() {
             </div>
             <div className='form_field'>
               <label>Departure Date</label>
-              <input id='depDate' type='date' value={depDate} onChange={(e) => setDeparture(e.target.value)} />
+              <input id='depDate' type='date' value={departure_date} onChange={(e) => setDepartureDate(e.target.value)} />
             </div>
             <div className='form_field'>
               <label>Return Date</label>
-              <input type='date' value={return_date} onChange={(e) => setReturn(e.target.value)} />
+              <input type='date' value={return_date} onChange={(e) => setReturnDate(e.target.value)} />
             </div>
             <div className='button_field'>
             <button type='button' id='prev2' onClick={prevThree} >Previous</button>

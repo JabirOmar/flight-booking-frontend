@@ -1,17 +1,24 @@
 import React from 'react'
 import { BsFillSunFill } from 'react-icons/bs'
 import { IoIosMoon } from 'react-icons/io'
+import { Link } from 'react-router-dom'
 import './navbar.css'
 
 function NavBar() {
 
+  // const homePage = document.getElementById('section1')
+  // const indicate = document.getElementById('indicator')
+  // const body = document.querySelector('body')
+  // const menuBox = document.getElementById('menu_box')
+  // const navLink = document.querySelector('.nav_links')
+  // const explorePage = document.getElementById('section2')
+  // const bookPage = document.getElementById('section3')
+  // const aboutPage = document.getElementById('section4')
+
+
+
   const shake = () => {
-    const shakeLogo = document.getElementById('logo')
     const homePage = document.getElementById('section1')
-    // shakeLogo.classList.add('drop_from_top')
-    // setTimeout(() => {
-    //   shakeLogo.classList.remove('drop_from_top')
-    // }, 1800);
     homePage.scrollIntoView({behavior: 'smooth', block: 'end'})
   }
 
@@ -43,7 +50,9 @@ function NavBar() {
 
   const home = () => {
     const homePage = document.getElementById('section1')
+    // const navBar = document.querySelector('.nav_links')
     homePage.scrollIntoView({behavior: 'smooth', block: 'end'})
+    // navBar.classList.remove('ticket')
   }
 
   const explore = () => {
@@ -61,6 +70,26 @@ function NavBar() {
     aboutPage.scrollIntoView({behavior: 'smooth', block: 'end'})
   }
 
+  // if (window.location.pathname==="/home"){
+  //   // alert("Home Page")
+  //   console.log('home');
+  // }else if (window.location.pathname==="/ticket"){
+
+  // }
+
+
+  const ticket = () => {
+    const navBar = document.querySelector('.nav_links')
+    navBar.classList.add('ticket')
+  }
+
+  const main = () => {
+    const navBar = document.querySelector('.nav_links')
+    navBar.classList.remove('ticket')
+  }
+
+  
+
 
   return (
     <nav>
@@ -72,9 +101,11 @@ function NavBar() {
       <div className='right_nav'>
         <div className='nav_links'>
           <ul>
-            {/* <li section = 'section1' className='links' onClick={ () => { home(); link();}} id='home'>Home</li> */}
+            <li section = 'section1' className='links' onClick={ () => { home(); link();}} id='home'><Link to='/'>Home</Link></li>
             <li section = 'section2' className='links' onClick={ () => { explore(); link();}} id='explore'>Explore</li>
             <li section = 'section3' className='links' onClick={ () => { book(); link();}} id='book'>Book</li>
+            <li><Link to='/' onClick={main}>Main</Link></li>
+            <li id=''><Link to='/ticket' onClick={ticket}>Ticket</Link></li>
             <li section = 'section4' className='links' onClick={ () => { about(); link();}} id='contact'>About</li>
           </ul>
         </div>

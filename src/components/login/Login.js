@@ -73,6 +73,7 @@ function Login() {
                 <div className='signup_row2'>
                     <input type='email' placeholder="Email Address" />
                     <input type='password' placeholder="Password" />
+                    <input type='password' placeholder="Conform Password" />
                 </div>
                 <div className='signup_row3'>
                     <input type='number' placeholder="Age" />
